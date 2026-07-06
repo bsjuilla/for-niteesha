@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Niteesha 💌</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --blush: #ffe3ec;
+    --rose: #ff8fab;
+    --rose-deep: #ff5d8f;
+    --coral: #ff9a76;
+    --cream: #fff7f2;
+    --ink: #5a3d47;
+    --ink-soft: #8a6b74;
+    --gold: #ffcf7d;
+    --shadow: 0 18px 40px -18px rgba(255, 93, 143, 0.55);
+    --shadow-soft: 0 10px 30px -12px rgba(255, 93, 143, 0.35);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #fff0d9 0%, transparent 55%),
+      radial-gradient(1200px 700px at 110% 10%, #ffd7e6 0%, transparent 50%),
+      linear-gradient(160deg, var(--cream) 0%, var(--blush) 60%, #ffd9e4 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Floating hearts background */
+  .hearts { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .hearts span {
+    position: absolute; bottom: -40px; font-size: 22px; opacity: 0;
+    animation: float-up linear infinite;
+  }
+  @keyframes float-up {
+    0%   { transform: translateY(0) scale(.6) rotate(0deg); opacity: 0; }
+    12%  { opacity: .55; }
+    100% { transform: translateY(-110vh) scale(1) rotate(40deg); opacity: 0; }
+  }
+
+  .wrap { position: relative; z-index: 1; max-width: 940px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* HERO */
+  header.hero { text-align: center; padding: 70px 12px 40px; }
+  .hero .eyebrow {
+    font-family: 'Fraunces', serif; font-style: italic; color: var(--rose-deep);
+    letter-spacing: .5px; font-size: 1.05rem; margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(2.6rem, 8vw, 4.6rem); line-height: 1.02; color: var(--ink);
+    letter-spacing: -1px;
+  }
+  .hero h1 .name {
+    background: linear-gradient(120deg, var(--rose-deep), var(--coral));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero p.sub {
+    max-width: 560px; margin: 22px auto 0; font-size: 1.15rem; color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .hero .sig { margin-top: 10px; font-family: 'Fraunces', serif; font-style: italic; color: var(--rose-deep); }
+  .scroll-cue { margin-top: 34px; font-size: .95rem; color: var(--ink-soft); animation: bob 2.2s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(8px);} }
+
+  /* SECTION */
+  section { margin-top: 64px; }
+  .section-head { text-align: center; margin-bottom: 26px; }
+  .section-head h2 {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(1.7rem, 4.5vw, 2.4rem);
+    color: var(--ink);
+  }
+  .section-head p { color: var(--ink-soft); margin-top: 6px; font-size: 1.02rem; }
+
+  .card-surface {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 143, 171, 0.35);
+    border-radius: 28px;
+    box-shadow: var(--shadow-soft);
+    padding: 30px;
+  }
+
+  /* OPEN WHEN GRID */
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px;
+  }
+  .open-btn {
+    cursor: pointer; border: none; text-align: left;
+    background: linear-gradient(150deg, #ffffff, #fff2f6);
+    border: 1px solid rgba(255, 143, 171, 0.4);
+    border-radius: 20px; padding: 20px 18px; color: var(--ink);
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 1.02rem; line-height: 1.35;
+    box-shadow: 0 6px 18px -10px rgba(255, 93, 143, .5);
+    transition: transform .18s ease, box-shadow .18s ease;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .open-btn:hover { transform: translateY(-4px) rotate(-.6deg); box-shadow: var(--shadow); }
+  .open-btn .tag { font-size: 1.3rem; line-height: 1; }
+
+  /* MODAL */
+  .modal-veil {
+    position: fixed; inset: 0; z-index: 50; display: none; align-items: center; justify-content: center;
+    background: rgba(90, 61, 71, 0.45); backdrop-filter: blur(4px); padding: 20px;
+  }
+  .modal-veil.show { display: flex; animation: veil .25s ease; }
+  @keyframes veil { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    max-width: 420px; width: 100%; background: linear-gradient(160deg, #fff, #fff4f8);
+    border-radius: 26px; padding: 34px 30px; text-align: center; box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 143, 171, .5); animation: pop .3s cubic-bezier(.2,1.3,.4,1);
+  }
+  @keyframes pop { from { transform: scale(.82); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .modal .m-tag { font-size: 2.2rem; }
+  .modal .m-title { font-family: 'Fraunces', serif; color: var(--rose-deep); font-size: 1.15rem; margin: 8px 0 14px; font-style: italic; }
+  .modal .m-body { font-size: 1.2rem; line-height: 1.55; color: var(--ink); }
+  .modal button.close {
+    margin-top: 22px; cursor: pointer; border: none; border-radius: 40px; padding: 11px 26px;
+    background: linear-gradient(120deg, var(--rose-deep), var(--coral)); color: #fff; font-weight: 800;
+    font-family: 'Nunito', sans-serif; font-size: 1rem; box-shadow: var(--shadow-soft);
+  }
+
+  /* WHEEL */
+  .wheel-wrap { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .wheel-stage { position: relative; width: min(340px, 82vw); height: min(340px, 82vw); }
+  .pointer {
+    position: absolute; top: -6px; left: 50%; transform: translateX(-50%); z-index: 3;
+    width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent;
+    border-top: 26px solid var(--rose-deep); filter: drop-shadow(0 3px 3px rgba(0,0,0,.2));
+  }
+  .wheel {
+    width: 100%; height: 100%; border-radius: 50%;
+    border: 10px solid #fff; box-shadow: var(--shadow), inset 0 0 0 4px rgba(255,143,171,.4);
+    transition: transform 4.6s cubic-bezier(.14, .82, .18, 1);
+  }
+  .wheel-hub {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2;
+    width: 58px; height: 58px; border-radius: 50%; background: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(255,93,143,.4);
+  }
+  .spin-btn, .reason-btn, .bad-btn {
+    cursor: pointer; border: none; border-radius: 44px; padding: 15px 34px;
+    background: linear-gradient(120deg, var(--rose-deep), var(--coral)); color: #fff;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: .3px;
+    box-shadow: var(--shadow); transition: transform .15s ease, filter .15s ease;
+  }
+  .spin-btn:hover, .reason-btn:hover, .bad-btn:hover { transform: translateY(-3px); filter: brightness(1.05); }
+  .spin-btn:active, .reason-btn:active, .bad-btn:active { transform: translateY(1px) scale(.98); }
+  .spin-btn:disabled { filter: grayscale(.4) brightness(.9); cursor: default; transform: none; }
+  .result {
+    min-height: 30px; text-align: center; font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 1.35rem; color: var(--rose-deep); max-width: 480px; line-height: 1.4;
+    transition: opacity .3s ease;
+  }
+
+  /* REASONS */
+  .reason-box { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 26px; }
+  .reason-display {
+    font-family: 'Fraunces', serif; font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1.4;
+    color: var(--ink); max-width: 640px; min-height: 90px; display: flex; align-items: center;
+    justify-content: center; transition: opacity .3s ease, transform .3s ease;
+  }
+  .reason-count { font-size: .95rem; color: var(--ink-soft); font-weight: 700; }
+
+  /* BAD DAY */
+  .bad-box { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .bad-btn {
+    font-size: 1.25rem; padding: 20px 40px; background: linear-gradient(120deg, #ff5d8f, #ffcf7d);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{ box-shadow: var(--shadow);} 50%{ box-shadow: 0 22px 50px -14px rgba(255,93,143,.75);} }
+  .bad-result {
+    font-family: 'Fraunces', serif; font-style: italic; font-size: 1.35rem; color: var(--rose-deep);
+    max-width: 520px; min-height: 30px; line-height: 1.45; transition: opacity .3s ease;
+  }
+
+  /* PHOTO SLOTS (easy to fill later) */
+  .photo-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+  .photo-slot {
+    width: 150px; height: 150px; border-radius: 20px; border: 2px dashed rgba(255,143,171,.7);
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    color: var(--ink-soft); font-size: .8rem; background: rgba(255,255,255,.5); padding: 8px;
+  }
+  .photo-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; }
+
+  footer { text-align: center; margin-top: 70px; color: var(--ink-soft); font-size: 1rem; }
+  footer .heart { color: var(--rose-deep); }
+
+  /* confetti pieces */
+  .confetti-piece { position: fixed; top: -20px; z-index: 60; pointer-events: none; border-radius: 2px; }
+  @keyframes fall {
+    to { transform: translateY(105vh) rotate(720deg); opacity: 1; }
+  }
+</style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="eyebrow">a little corner of the internet, just for you</div>
+      <h1>Hi <span class="name">Niteesha</span> 💗</h1>
+      <p class="sub">You're at work, I'm not there with you, so I built you a website instead. Click around whenever your day needs a little softness. Everything in here is for you.</p>
+      <p class="sig">— Divyesh</p>
+      <div class="scroll-cue">scroll down, cutie ↓</div>
+    </header>
+
+    <!-- OPEN WHEN -->
+    <section id="openwhen">
+      <div class="section-head">
+        <h2>💌 Open When…</h2>
+        <p>Tap the one that fits your moment.</p>
+      </div>
+      <div class="card-surface">
+        <div class="grid" id="openGrid"></div>
+      </div>
+    </section>
+
+    <!-- WHEEL -->
+    <section id="wheel">
+      <div class="section-head">
+        <h2>🎡 Spin the wheel</h2>
+        <p>Redeemable by me, on sight. Screenshot your winnings.</p>
+      </div>
+      <div class="card-surface wheel-wrap">
+        <div class="wheel-stage">
+          <div class="pointer"></div>
+          <div class="wheel-hub">💝</div>
+          <canvas class="wheel" id="wheelCanvas" width="600" height="600"></canvas>
+        </div>
+        <button class="spin-btn" id="spinBtn">Spin it 🎡</button>
+        <div class="result" id="wheelResult">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- REASONS -->
+    <section id="reasons">
+      <div class="section-head">
+        <h2>❤️ Reasons I love you</h2>
+        <p>There are 100 in here. You won't run out.</p>
+      </div>
+      <div class="card-surface reason-box">
+        <div class="reason-display" id="reasonDisplay">Press the button, my love. →</div>
+        <button class="reason-btn" id="reasonBtn">Tell me another 💞</button>
+        <div class="reason-count" id="reasonCount"></div>
+      </div>
+    </section>
+
+    <!-- BAD DAY -->
+    <section id="badday">
+      <div class="section-head">
+        <h2>😤 Work being work?</h2>
+        <p>Smash the button. I got you.</p>
+      </div>
+      <div class="card-surface bad-box">
+        <button class="bad-btn" id="badBtn">Work is being work 💥</button>
+        <div class="bad-result" id="badResult">&nbsp;</div>
+      </div>
+    </section>
+
+    <!-- PHOTOS (fill later) -->
+    <section id="photos">
+      <div class="section-head">
+        <h2>📸 Us (coming soon)</h2>
+        <p>Divyesh — drop images into a <code>photos</code> folder and swap these in later.</p>
+      </div>
+      <div class="photo-row">
+        <div class="photo-slot"><!-- <img src="photos/1.jpg" alt=""> -->our first photo goes here 💕</div>
+        <div class="photo-slot"><!-- <img src="photos/2.jpg" alt=""> -->your favorite one 💕</div>
+        <div class="photo-slot"><!-- <img src="photos/3.jpg" alt=""> -->the silly one 💕</div>
+      </div>
+    </section>
+
+    <footer>
+      Made with <span class="heart">❤</span> by Divyesh, for Niteesha.<br />
+      I'd choose you again. Every time.
+    </footer>
+  </div>
+
+<script>
+  /* ---------- Floating hearts ---------- */
+  (function () {
+    const container = document.getElementById('hearts');
+    const emojis = ['💗','💕','💞','🌸','💖','🩷'];
+    for (let i = 0; i < 18; i++) {
+      const s = document.createElement('span');
+      s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.fontSize = 14 + Math.random() * 20 + 'px';
+      s.style.animationDuration = 10 + Math.random() * 14 + 's';
+      s.style.animationDelay = Math.random() * 14 + 's';
+      container.appendChild(s);
+    }
+  })();
+
+  /* ---------- Open When cards ---------- */
+  const openCards = [
+    { tag: '☕', label: "Open when it's only 11am and you're already done",
+      body: "Breathe. You've survived 100% of your worst days so far — undefeated. Now go get a snack, you've earned it." },
+    { tag: '😮‍💨', label: "Open when someone at work is annoying",
+      body: "On a scale of 1 to me, they will never be as obsessed with you as I am. Ignore them, they're background noise." },
+    { tag: '🥺', label: "Open when you miss me",
+      body: "Same. I've thought about you roughly 400 times since you left. This card is number 401." },
+    { tag: '🌱', label: "Open when you're nervous about the new job",
+      body: "You are literally new — you're allowed to not know things yet. They hired you because you're capable. I love you because you're you." },
+    { tag: '🕔', label: "Open when it's almost 5pm",
+      body: "Almost free. Count it down with me. And then, my love, you're all mine." },
+    { tag: '🫧', label: "Open when you feel small today",
+      body: "You are the best part of my every single day. Nothing that happened at work changes that, not even a little." },
+    { tag: '🌙', label: "Open when you can't sleep",
+      body: "Close your eyes. Pretend I'm there. I'm holding you, my hand in your hair. Goodnight, my Niteesha." },
+    { tag: '✨', label: "Open when you doubt yourself",
+      body: "I see you clearer than you see yourself, and from right here, you are absolutely extraordinary." },
+    { tag: '📞', label: "Open when you just need me",
+      body: "I'm one call away. Always. No question too small, no time too late. Call me. I mean it." },
+  ];
+
+  const grid = document.getElementById('openGrid');
+  const veil = document.createElement('div');
+  veil.className = 'modal-veil';
+  veil.innerHTML = '<div class="modal"><div class="m-tag"></div><div class="m-title"></div><div class="m-body"></div><button class="close">close 💗</button></div>';
+  document.body.appendChild(veil);
+  const mTag = veil.querySelector('.m-tag');
+  const mTitle = veil.querySelector('.m-title');
+  const mBody = veil.querySelector('.m-body');
+  function closeModal() { veil.classList.remove('show'); }
+  veil.querySelector('.close').addEventListener('click', closeModal);
+  veil.addEventListener('click', e => { if (e.target === veil) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  openCards.forEach(c => {
+    const b = document.createElement('button');
+    b.className = 'open-btn';
+    b.innerHTML = '<span class="tag">' + c.tag + '</span><span>' + c.label + '</span>';
+    b.addEventListener('click', () => {
+      mTag.textContent = c.tag;
+      mTitle.textContent = c.label;
+      mBody.textContent = c.body;
+      veil.classList.add('show');
+    });
+    grid.appendChild(b);
+  });
+
+  /* ---------- Spin the wheel ---------- */
+  const coupons = [
+    "One (1) free kiss, redeemable on sight 💋",
+    "A long hug — minimum 30 seconds, no letting go first 🤗",
+    "10 minutes of uninterrupted cuddles, no phones 🫂",
+    "A forehead kiss the second you see me 😚",
+    "A back scratch until you fall asleep 😴",
+    "Little spoon privileges tonight, guaranteed 🥄",
+    "A neck & shoulder rub, no time limit 💆‍♀️",
+    "One slow dance in the kitchen to no music 💃",
+    "Hand-holding the entire walk, wherever we go 🤝",
+    "A hug from behind while you're doing anything 🫶",
+    "20 mins of me listening to you rant — zero advice 👂",
+    "A pass to be dramatic about something small 🎭",
+    "\"I'll come pick you up\" — no matter where you are 🚗",
+    "Cheek kisses until you tell me to stop (I won't) 😘",
+  ];
+  const wheelColors = ['#ff8fab','#ffb3c6','#ff9a76','#ffcf7d','#ffa5c0','#ff7d9e'];
+  const canvas = document.getElementById('wheelCanvas');
+  const ctx = canvas.getContext('2d');
+  const N = coupons.length;
+  const slice = (2 * Math.PI) / N;
+
+  function drawWheel() {
+    const cx = 300, cy = 300, r = 300;
+    for (let i = 0; i < N; i++) {
+      const start = i * slice - Math.PI / 2;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, r, start, start + slice);
+      ctx.closePath();
+      ctx.fillStyle = wheelColors[i % wheelColors.length];
+      ctx.fill();
+      // little dot marker on each slice
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(start + slice / 2);
+      ctx.fillStyle = 'rgba(255,255,255,.85)';
+      ctx.beginPath();
+      ctx.arc(r * 0.72, 0, 7, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+  drawWheel();
+
+  const wheel = canvas;
+  const spinBtn = document.getElementById('spinBtn');
+  const wheelResult = document.getElementById('wheelResult');
+  let currentRot = 0;
+  let spinning = false;
+
+  spinBtn.addEventListener('click', () => {
+    if (spinning) return;
+    spinning = true;
+    spinBtn.disabled = true;
+    wheelResult.style.opacity = '0';
+    wheelResult.innerHTML = '&nbsp;';
+
+    const index = Math.floor(Math.random() * N);
+    const sliceDeg = 360 / N;
+    // center of chosen slice, then bring to top (pointer)
+    const target = 360 * 5 - (index * sliceDeg + sliceDeg / 2);
+    currentRot += (target - (currentRot % 360)) + 360 * 5;
+    wheel.style.transform = 'rotate(' + currentRot + 'deg)';
+
+    setTimeout(() => {
+      wheelResult.textContent = coupons[index];
+      wheelResult.style.opacity = '1';
+      spinning = false;
+      spinBtn.disabled = false;
+      burstConfetti(24);
+    }, 4700);
+  });
+
+  /* ---------- Reasons I love you (100) ---------- */
+  const reasons = [
+    "You're beautiful in a way that makes me forget what I was saying.",
+    "You're so sweet it genuinely softens my whole day.",
+    "You're affectionate in a way that makes bad days disappear.",
+    "Your smile is the best thing I've ever accidentally caused.",
+    "You make ordinary moments feel like something I'll remember forever.",
+    "You laugh at my worst jokes and it means everything.",
+    "You exist. That alone is my favorite fact about the world.",
+    "The way you care about people is quietly one of your superpowers.",
+    "You feel like home, and I didn't know a person could.",
+    "Your eyes do a thing when you're happy and I live for it.",
+    "You're gentle with me even when you don't have to be.",
+    "You make me want to be softer, kinder, better.",
+    "You're brave — you started a whole new job, remember that.",
+    "Your hugs recalibrate my entire nervous system.",
+    "You remember little things about me nobody else notices.",
+    "You're the calm at the end of my loudest days.",
+    "You're stunning and somehow completely unaware of it.",
+    "Your voice is my favorite sound to fall asleep to.",
+    "You make me laugh when I'm trying to stay grumpy.",
+    "You're the first person I want to tell everything to.",
+    "You're warm in a way that makes people gravitate to you.",
+    "You hold my hand like you mean it.",
+    "You make me feel chosen, every single day.",
+    "Your patience with me is a gift I don't deserve but treasure.",
+    "You're the good news at the end of a long day.",
+    "You're beautiful when you first wake up, wild hair and all.",
+    "You care so deeply, and I never take it for granted.",
+    "You make me feel safe enough to be completely myself.",
+    "Your excitement over small things is contagious.",
+    "You look at me sometimes and I forget how to function.",
+    "You're the reason \"someday\" started feeling real to me.",
+    "You make me proud just by being who you are.",
+    "You give the kind of affection that fixes things words can't.",
+    "You're thoughtful in ways you don't even realize.",
+    "You make me believe in the sappy stuff.",
+    "You handle hard days with more grace than you give yourself credit for.",
+    "You're my favorite person to be quiet with.",
+    "Your kindness shows up in the smallest, realest ways.",
+    "You make me feel like the luckiest person alive.",
+    "You're beautiful, but your heart is the part that undid me.",
+    "You make me want to protect your happiness at all costs.",
+    "You're the plot twist I never saw coming and always wanted.",
+    "Your laugh is my favorite song.",
+    "You make even boring errands feel like a date.",
+    "You're strong in ways that are easy to miss and impossible to forget.",
+    "You forgive me faster than I forgive myself.",
+    "You make me feel understood without explaining a thing.",
+    "You're the softest landing at the end of my day.",
+    "You believe in me even when I'm running low on belief.",
+    "You're gorgeous and it's honestly a little unfair.",
+    "You make me want to be there for every version of you.",
+    "Your affection is the most healing thing I know.",
+    "You notice when I'm off before I say a word.",
+    "You make me feel like enough, exactly as I am.",
+    "You're my favorite hello and my hardest goodbye.",
+    "You're new at your job and still showed up brave — that's you.",
+    "You make me smile at my phone like an idiot.",
+    "You're the best decision my heart ever made without asking me.",
+    "You're sweet to strangers and it says everything about you.",
+    "You make me feel loved in the quiet, ordinary hours.",
+    "Your presence lowers my shoulders from my ears.",
+    "You're beautiful inside in a way that outshines the rest.",
+    "You make \"us\" my favorite word.",
+    "You cheer for me louder than I cheer for myself.",
+    "You make me want to grow old slowly, right next to you.",
+    "Your cuddles are my favorite place to exist.",
+    "You handle my chaos with the steadiest hands.",
+    "You make me feel like the main character in a good story.",
+    "You're the reason I look forward to boring Tuesdays.",
+    "You love me in a way I can actually feel, and that's rare.",
+    "You're breathtaking and you don't even try to be.",
+    "You make me feel picked, on purpose, every day.",
+    "Your heart is generous even when you're tired.",
+    "You make me want to be worth the way you look at me.",
+    "You're my calm, my chaos, and my favorite everything.",
+    "You make me laugh so hard I forget what I was upset about.",
+    "You're the kind of sweet that restores my faith in people.",
+    "You make me feel wanted, not just needed.",
+    "You're beautiful when you're focused and don't know I'm staring.",
+    "You make hard weeks survivable just by being reachable.",
+    "You give the best hugs in the entire known universe.",
+    "You make me feel like I finally got something right.",
+    "You're kind to yourself sometimes now, and I'm proud of that.",
+    "You make me want to hold your hand at every red light.",
+    "You're the softest, warmest part of my life.",
+    "You make me feel chosen even on my most unlovable days.",
+    "You're beautiful, sweet, and affectionate — the whole trifecta, unfairly.",
+    "You make me believe I got incredibly, absurdly lucky.",
+    "You feel things deeply, and I love you for never hiding it.",
+    "You make my future look like a place I want to run toward.",
+    "You're the reason \"I love you\" stopped feeling like enough words.",
+    "You make me want to memorize every ordinary day with you.",
+    "You're my favorite person on your best day and your worst.",
+    "You make me feel at peace, and peace is hard to find.",
+    "You're stunning, but it's your softness that ruined me for anyone else.",
+    "You make new and scary things feel doable, and I hope I do that for you too.",
+    "You're the best \"good morning\" and the sweetest \"goodnight.\"",
+    "You make loving you the easiest thing I've ever done.",
+    "You make me feel like I'm exactly where I'm supposed to be.",
+    "Reason #100: I'd choose you again. Every version, every lifetime, every time. — Divyesh",
+  ];
+
+  const reasonDisplay = document.getElementById('reasonDisplay');
+  const reasonBtn = document.getElementById('reasonBtn');
+  const reasonCount = document.getElementById('reasonCount');
+  let lastReason = -1;
+  let seen = new Set();
+
+  reasonBtn.addEventListener('click', () => {
+    let i;
+    do { i = Math.floor(Math.random() * reasons.length); } while (i === lastReason && reasons.length > 1);
+    lastReason = i;
+    seen.add(i);
+    reasonDisplay.style.opacity = '0';
+    reasonDisplay.style.transform = 'translateY(8px)';
+    setTimeout(() => {
+      reasonDisplay.textContent = reasons[i];
+      reasonDisplay.style.opacity = '1';
+      reasonDisplay.style.transform = 'translateY(0)';
+      reasonCount.textContent = seen.size + ' of ' + reasons.length + ' discovered 💗';
+    }, 260);
+  });
+
+  /* ---------- Bad day button ---------- */
+  const badLines = [
+    "Certified rough day. Compensation: me, tonight, being extra nice to you.",
+    "Error 404: motivation not found. Rebooting with love… ❤️",
+    "You're doing amazing. The job is lucky. I'm luckier.",
+    "Deep breath. You + me + tonight = everything fixable.",
+    "That was hard. You still showed up. That's my girl.",
+    "Dramatic sigh accepted. Complaint filed. Hug pre-approved.",
+    "The day loses. You win. You always do, eventually.",
+  ];
+  const badBtn = document.getElementById('badBtn');
+  const badResult = document.getElementById('badResult');
+  badBtn.addEventListener('click', () => {
+    const line = badLines[Math.floor(Math.random() * badLines.length)];
+    badResult.style.opacity = '0';
+    setTimeout(() => { badResult.textContent = line; badResult.style.opacity = '1'; }, 200);
+    burstConfetti(46);
+  });
+
+  /* ---------- Confetti ---------- */
+  function burstConfetti(count) {
+    const colors = ['#ff5d8f','#ff9a76','#ffcf7d','#ff8fab','#ffb3c6','#ffffff'];
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      p.className = 'confetti-piece';
+      const size = 7 + Math.random() * 8;
+      p.style.width = size + 'px';
+      p.style.height = size * (0.4 + Math.random()) + 'px';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.background = colors[Math.floor(Math.random() * colors.length)];
+      p.style.opacity = '0';
+      const dur = 2.2 + Math.random() * 1.8;
+      p.style.animation = 'fall ' + dur + 's linear forwards';
+      p.style.transform = 'translateY(0) rotate(0deg)';
+      document.body.appendChild(p);
+      requestAnimationFrame(() => { p.style.opacity = '1'; });
+      setTimeout(() => p.remove(), dur * 1000 + 200);
+    }
+  }
+</script>
+</body>
+</html>
